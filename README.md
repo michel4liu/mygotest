@@ -1,0 +1,2 @@
+# mygotest
+go test
