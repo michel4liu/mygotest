@@ -46,6 +46,6 @@ func main() {
 		a++
 	}
 
-	output.OutputText()
+	output.OutputText(output.GetTest())
 
 }
