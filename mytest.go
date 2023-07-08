@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"example.com/m/v2/output"
 )
 
 var x, y int
@@ -10,7 +12,7 @@ var x, y int
 func main() {
 	var aa = 12345
 
-	fmt.Println(aa)
+	fmt.Println(&aa)
 
 	fmt.Println(x, y)
 
@@ -27,4 +29,23 @@ func main() {
 	// fmt.Printf(s)
 	//Fprintf：来格式化并输出到 io.Writers 而不是 os.Stdout。
 	fmt.Fprintf(os.Stderr, "an %s\n", "error")
+
+	/* 定义局部变量 */
+	var a int = 10
+
+	/* 循环 */
+	// LOOP:
+	for a < 20 {
+		if a == 15 {
+			/* 跳过迭代 */
+			a = a + 1
+			// goto LOOP
+			continue
+		}
+		fmt.Printf("a的值为 : %d\n", a)
+		a++
+	}
+
+	output.OutputText()
+
 }
