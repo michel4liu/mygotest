@@ -28,7 +28,7 @@ func main() {
 	// s := fmt.Sprintf("a %s", "string")
 	// fmt.Printf(s)
 	//Fprintf：来格式化并输出到 io.Writers 而不是 os.Stdout。
-	fmt.Fprintf(os.Stderr, "an %s\n", "error")
+	fmt.Fprintf(os.Stderr, "an22 %s\n", "error222222")
 
 	/* 定义局部变量 */
 	var a int = 10
@@ -48,7 +48,9 @@ func main() {
 
 	output.OutputText(output.GetTest())
 
-	oa,ob := output.GetTest2()
+	oa, ob := output.GetTest2()
 	output.OutputText(oa)
 	output.OutputText(ob)
+
+	output.GetTest3()
 }
