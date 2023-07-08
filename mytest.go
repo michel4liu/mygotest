@@ -48,4 +48,7 @@ func main() {
 
 	output.OutputText(output.GetTest())
 
+	oa,ob := output.GetTest2()
+	output.OutputText(oa)
+	output.OutputText(ob)
 }
