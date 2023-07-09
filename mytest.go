@@ -166,7 +166,8 @@ func main() {
 	p4 := struct {
 		Name string `json:"名称"`
 		Age  int    `json:"-"`
-	}{Name: "匿名", Age: 33}
+		sex  bool
+	}{Name: "匿名222222", Age: 33}
 	fmt.Println("p4 =", p4)
 
 	//序列化
@@ -176,8 +177,110 @@ func main() {
 	}
 	fmt.Println("json data :", string(jsons))
 
+	var p1 = make(map[int]string)
+	p1[1] = "Tom"
+	p1[1] = "Tom333"
+	p1[2] = "Tom2"
+	fmt.Println("p1 :", p1)
+
+	var p2 map[int]string = map[int]string{}
+	p2[1] = "Tom"
+	fmt.Println("p2 :", p2)
+
+	var p3 map[int]string = make(map[int]string)
+	p3[1] = "Tom"
+	fmt.Println("p3 :", p3)
+
+	// p4 := map[int]string{}
+	// p4[1] = "Tom"
+	// fmt.Println("p4 :", p4)
+
+	p5 := make(map[int]string)
+	p5[1] = "Tom"
+	fmt.Println("p5 :", p5)
+
+	p6 := map[int]string{
+		1: "Tom",
+	}
+	fmt.Println("p6 :", p6)
+
+	fmt.Println("------------------------------------------------")
+	person := [3]string{"Tom", "Aaron", "John"}
+	fmt.Printf("len=%d cap=%d array=%v\n", len(person), cap(person), person)
+
+	fmt.Println("")
+
+	//循环
+	for k, v := range person {
+		fmt.Printf("person[%d]: %s\n", k, v)
+	}
+
+	fmt.Println("")
+
+	for i := range person {
+		fmt.Printf("person[%d]: %s\n", i, person[i])
+	}
+
+	fmt.Println("")
+
+	for i := 0; i < len(person); i++ {
+		fmt.Printf("person[%d]: %s\n", i, person[i])
+	}
+
+	fmt.Println("")
+
+	//使用空白符
+	for _, name := range person {
+		fmt.Println("name :", name)
+	}
+
+	fmt.Println("------------------------------------------------")
+
+	switchi := 3
+	fmt.Printf("当 i = %d 时：\n", switchi)
+
+	switch switchi {
+	case 1:
+		fmt.Println("输出 i =", 1)
+	case 2:
+		fmt.Println("输出 i =", 2)
+	case 3:
+		fmt.Println("输出 i =", 3)
+		fallthrough
+	case 4, 5, 6:
+		fmt.Println("输出 i =", "4 or 5 or 6")
+	default:
+		fmt.Println("输出 i =", "xxx")
+	}
+
+	fmt.Println("------------------------------------------------")
+	var numbers = make([]int, 0, 5)
+	printSlice(numbers)
+
+	/* 允许追加空切片 */
+	numbers = append(numbers, 0)
+	printSlice(numbers)
+
+	/* 向切片添加一个元素 */
+	numbers = append(numbers, 1)
+	printSlice(numbers)
+
+	/* 同时添加多个元素 */
+	numbers = append(numbers, 2, 3, 4, 5, 6, 7, 9, 11, 8)
+	printSlice(numbers)
+
+	/* 创建切片 numbers1 是之前切片的两倍容量*/
+	numbers1 := make([]int, len(numbers), (cap(numbers))*2)
+
+	/* 拷贝 numbers 的内容到 numbers1 */
+	copy(numbers1, numbers)
+	printSlice(numbers1)
 }
 
 func modifyArr(a *[5]int) {
 	a[1] = 20
+}
+
+func printSlice(x []int) {
+	fmt.Printf("len=%d cap=%d slice=%v\n", len(x), cap(x), x)
 }
