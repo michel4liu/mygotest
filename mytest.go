@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"time"
 
 	"example.com/m/v2/output"
 )
@@ -275,6 +276,9 @@ func main() {
 	/* 拷贝 numbers 的内容到 numbers1 */
 	copy(numbers1, numbers)
 	printSlice(numbers1)
+
+	fmt.Printf("current time str : %s\n", getTimeStr())
+	fmt.Printf("current time unix : %d\n", getTimeInt())
 }
 
 func modifyArr(a *[5]int) {
@@ -283,4 +287,13 @@ func modifyArr(a *[5]int) {
 
 func printSlice(x []int) {
 	fmt.Printf("len=%d cap=%d slice=%v\n", len(x), cap(x), x)
+}
+
+func getTimeStr() string {
+	return time.Now().Format("2006-01-02 15:04:05")
+}
+
+// 获取当前时间戳
+func getTimeInt() int64 {
+	return time.Now().Unix()
 }
