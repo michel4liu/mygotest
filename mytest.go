@@ -13,6 +13,14 @@ var x, y int
 
 func main() {
 
+	name := "Tom"
+	s, err := study.New(name)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(s.Listen("english"))
+
 	const ca, cb int = 1, 2
 
 	var aa = 12345
